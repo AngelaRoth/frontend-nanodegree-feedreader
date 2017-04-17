@@ -8,7 +8,6 @@
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
-var menuStateOnLoadTested = false;
 
 $(function() {
     /* This is our first test suite - a test suite just contains
@@ -32,63 +31,62 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('all have defined URLs', function() {
+        it('all have defined URLs', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
             });
-         });
+        });
 
-         it('all have URL values', function() {
+        it('all have URL values', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeTruthy();
             });
-         });
+        });
 
         /* Step 9: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('all have defined names', function() {
+        it('all have defined names', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
             });
-         });
+        });
 
-         it('all have name values', function() {
+        it('all have name values', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeTruthy();
             });
-         });
+        });
     });
 
 
     /* Step 10: Write a new test suite named "The menu" */
     describe('The menu', function() {
+        var menuHidden;
         /* Step 11: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-         it('is hidden by default',  function() {
-            if (!menuStateOnLoadTested) {
-                var hasMenuHiddenClass = $('body').hasClass('menu-hidden');
-                expect(hasMenuHiddenClass).toBeTruthy();
-                menuStateOnLoadTested = true;
-            }
-         });
+        it('is hidden by default',  function() {
+            menuHidden = $('body').hasClass('menu-hidden');
+            expect(menuHidden).toBe(true);
+        });
 
          /* Step 12: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          it('changes visibility when menu icon is clicked', function() {
-                var beforeClickMenuHiddenStatus = $('body').hasClass('menu-hidden');
-                $('.menu-icon-link').trigger('click');
-                var afterClickMenuHiddenStatus = $('body').hasClass('menu-hidden');
-                expect(beforeClickMenuHiddenStatus).not.toEqual(afterClickMenuHiddenStatus);
-          });
-
+        it('changes visibility when menu icon is clicked', function() {
+            $('.menu-icon-link').trigger('click');
+            menuHidden = $('body').hasClass('menu-hidden');
+            expect(menuHidden).toBe(false);
+            $('.menu-icon-link').trigger('click');
+            menuHidden = $('body').hasClass('menu-hidden');
+            expect(menuHidden).toBe(true);
+        });
     });
 
 
