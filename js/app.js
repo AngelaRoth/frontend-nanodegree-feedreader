@@ -51,6 +51,9 @@ function init() {
        contentType:"application/json",
        success: function (result, status){
 
+                // ME: Check format of results
+                console.log(result);
+
                  var container = $('.feed'),
                      title = $('.header-title'),
                      entries = result.feed.entries,

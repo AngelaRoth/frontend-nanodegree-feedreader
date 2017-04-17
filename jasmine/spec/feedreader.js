@@ -98,18 +98,29 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        beforeEach(function(done) {
-            loadFeed(0, function() {
+
+        var numFeedListItems = $('.feed-list').children().length;
+        console.log('numFeedListItems = ' + numFeedListItems);
+
+        function test_if_exist(feedNum) {
+            beforeEach(function(done) {
+                console.log('feedNum = ' + feedNum);
+                loadFeed(feedNum, function() {
+                    done();
+                });
+            });
+
+            it('for feed ' + feedNum + ' exist on load', function(done) {
+                var numFeedChildren = $('.feed').children().length;
+                expect(numFeedChildren).toBeTruthy();
                 done();
             });
-        });
 
-         it('exist on load', function(done) {
-            var numFeedChildren = $('.feed').children().length;
-            var numFeedListItems = $('.feed-list').children().length;
-            expect(numFeedChildren).toBeTruthy();
-            done();
-         });
+        }
+
+        for (var i = 0; i < numFeedListItems; i++) {
+            test_if_exist(i);
+        }
     });
 
 
