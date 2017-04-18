@@ -154,9 +154,10 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          */
         // If test works for two random feeds (in this case, feeds with
-        // IDs of 1 and 2) it should work on any two feeds. Here, the point
+        // IDs of 1 and 0) it should work on any two feeds. Here, the point
         // is not to test if all our feeds contain different content; it is
-        // to test that selecting a new feed actually loads that new feed.
+        // to test that selecting a new feed actually loads that new feed. I
+        // end with loading feed 0 to bring page back to "initial load" status.
         var oldHeaderHTML;
         var oldFeedHTML;
         beforeEach(function(done) {
@@ -165,7 +166,7 @@ $(function() {
             loadFeed(1, function() {
                 oldHeaderHTML = $('.header').html();
                 oldFeedHTML = $('.feed').html();
-                loadFeed(2, function() {
+                loadFeed(0, function() {
                     done();
                 });
             })
