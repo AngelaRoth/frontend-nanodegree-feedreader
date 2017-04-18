@@ -39,6 +39,7 @@ $(function() {
 
         it('all have URL values', function() {
             allFeeds.forEach(function(feed) {
+                // empty strings are not Truthy
                 expect(feed.url).toBeTruthy();
             });
         });
@@ -55,6 +56,7 @@ $(function() {
 
         it('all have name values', function() {
             allFeeds.forEach(function(feed) {
+                // empty strings are not Truthy
                 expect(feed.name).toBeTruthy();
             });
         });
@@ -100,6 +102,7 @@ $(function() {
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          */
+        // Ensure feed has loaded before inspecting it
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
@@ -118,6 +121,7 @@ $(function() {
     // for the existance of entries on any inputted feed ID.
     function test_for_entries(feedID) {
         describe('Entries for Feed ' + feedID, function() {
+            // Ensure feed has loaded before inspecting it
             beforeEach(function(done) {
                 // Make sure "feed" container is empty of
                 // entries from other feeds
@@ -152,6 +156,8 @@ $(function() {
         var oldHeaderHTML;
         var oldFeedHTML;
         beforeEach(function(done) {
+            // Include some additional calculations in the callback;
+            // these will run when the callback is called.
             loadFeed(1, function() {
                 oldHeaderHTML = $('.header').html();
                 oldFeedHTML = $('.feed').html();
