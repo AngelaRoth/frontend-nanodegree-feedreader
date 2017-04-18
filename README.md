@@ -6,7 +6,7 @@ For this project we were given a web-based application that reads RSS feeds, inc
 
 ## Loading and Running the Application
 
-All Jasmine functionality runs on load. To load the application, simply load `index.html` into your local browser
+All Jasmine functionality runs on load. To load the application, simply load `index.html` into your local browser.
 
 ### Passing and Failing
 
@@ -16,7 +16,7 @@ To check which Jasmine tests passed and which (if any) failed, scroll to the bot
 
 [Step 14](#step-fourteen) checks that at least a single `.entry` element exists within the `.feed` container ON LOAD. I wanted to make sure that all our feeds produce at least one entry, not just the feed which displays on load.
 
-I wrote a function called `test_for_entries` which takes a feed ID as an parameter and then checks that the feed with that ID produces entries. I then call this function for each feed in `allFeeds`.
+With this in mind, I included a function called `test_for_entries` which takes a feed ID as an input parameter and then checks that the feed with that ID produces entries. This function is called for each feed in `allFeeds`.
 
 ## <a id="steps">Steps Required for Completion</a>
 
