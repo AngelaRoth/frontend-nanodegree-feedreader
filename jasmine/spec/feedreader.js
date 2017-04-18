@@ -111,16 +111,12 @@ $(function() {
         });
 
         it('exist on load', function(done) {
-/*
-            var numFeedChildren = $('.feed').children().length;
-            expect(numFeedChildren).toBeGreaterThan(0);
-*/
             var numDescendantsOfClassEntry = $('.feed .entry').length;
             expect(numDescendantsOfClassEntry).toBeGreaterThan(0);
             done();
         });
     });
-/*
+
     // EXTRA TEST: It bothered me that we are only checking the existance
     // of entries for the first feed, so I created this function to check
     // for the existance of entries on any inputted feed ID.
@@ -136,8 +132,8 @@ $(function() {
             });
 
             it('exist', function(done) {
-                var numFeedChildren = $('.feed').children().length;
-                expect(numFeedChildren).toBeGreaterThan(0);
+                var numDescendantsOfClassEntry = $('.feed .entry').length;
+                expect(numDescendantsOfClassEntry).toBeGreaterThan(0);
                 done();
             });
         });
@@ -152,7 +148,7 @@ $(function() {
         test_for_entries(i);
     }
 
-*/
+
 
 
 
