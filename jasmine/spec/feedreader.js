@@ -65,9 +65,7 @@ $(function() {
     describe('The menu', function() {
         var menuHidden;
         /* Step 11: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+         * hidden by default.
          */
         it('is hidden by default',  function() {
             menuHidden = $('body').hasClass('menu-hidden');
@@ -91,14 +89,12 @@ $(function() {
 
 
     /* Step 13: Write a new test suite named "Initial Entries" */
-    // NOTE: Ideally, this test would check the init()
-    // function, not the loadFeed() function. However,
-    // I want to make use of the callback in loadFeed().
-    // Init() has no such callback and all it really does
-    // is call loadFeed() on the first feed (id 0); so
-    // I am simulating a call to the init() function by
-    // calling the loadFeed() function on the first feed
-    // (id 0)
+    // NOTE: Ideally, this test would check the init() function,
+    // not the loadFeed() function. However, I want to make use
+    // of the callback in loadFeed(). Init() has no such callback
+    // and all it really does is call loadFeed() on the first feed
+    // (id 0); so I am simulating a call to the init() function by
+    // calling the loadFeed() function on the first feed (id 0).
     describe('Initial Entries', function() {
         /* Step 14: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -152,7 +148,6 @@ $(function() {
     describe('New Feed Selection', function() {
         /* Step 16: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
          */
         var oldHeaderHTML;
         var oldFeedHTML;

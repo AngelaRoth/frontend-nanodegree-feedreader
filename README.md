@@ -1,29 +1,24 @@
-# Project Overview
+# Frontend Nanodegree Feedreader Project
 
-In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
+An assignment for the Udacity Frontend Nanodegree designed to test knowledge of the [Jasmine](http://jasmine.github.io/) testing library.
 
+For this project we were given a web-based application that reads RSS feeds, including the beginnings of the Jasmine code needed to create test suites. We then had to write suites to test various code functionality (see [Steps Required for Completion](#steps)).
 
-## Why this Project?
+## Loading and Running the Application
 
-Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". This is when developers write tests first, before they ever start developing their application. All the tests initially fail and then they start writing application code to make these tests pass.
+All Jasmine functionality runs on load. To load the application, simply load `index.html` into your local browser
 
-Whether you work in an organization that uses test-driven development or in an organization that uses tests to make sure future feature development doesn't break existing features, it's an important skill to have!
+### Passing and Failing
 
+To check which Jasmine tests passed and which (if any) failed, scroll to the bottom of the page. Ideally, you will see a **green** banner which states the number of specs run and 0 failures. If one or more tests failed, the banner will be **red** and the details of the failed specs will be listed.
 
-## What will I learn?
+## One Additional Test
 
-You will learn how to use Jasmine to write a number of tests against a pre-existing application. These will test the underlying business logic of the application as well as the event handling and DOM manipulation.
+[Step 14](#step-fourteen) checks that at least a single `.entry` element exists within the `.feed` container ON LOAD. I wanted to make sure that all our feeds produce at least one entry, not just the feed which displays on load.
 
+I wrote a function called `test_for_entries` which takes a feed ID as an parameter and then checks that the feed with that ID produces entries. I then call this function for each feed in `allFeeds`.
 
-## How will this help my career?
-
-* Writing effective tests requires analyzing multiple aspects of an application including the HTML, CSS and JavaScript - an extremely important skill when changing teams or joining a new company.
-* Good tests give you the ability to quickly analyze whether new code breaks an existing feature within your codebase, without having to manually test all of the functionality.
-
-
-# How will I complete this project?
-
-Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
+## <a id="steps">Steps Required for Completion</a>
 
 1. Take the JavaScript Testing [course](https://www.udacity.com/course/ud549)
 2. Download the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).
@@ -38,11 +33,11 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 11. Write a test that ensures the menu element is hidden by default. You'll have to analyze the HTML and the CSS to determine how we're performing the hiding/showing of the menu element.
 12. Write a test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display when clicked and does it hide when clicked again.
 13. Write a test suite named `"Initial Entries"`.
-14. Write a test that ensures when the `loadFeed` function is called and completes its work, there is at least a single `.entry` element within the `.feed` container.
+<a id="step-fourteen">14.</a> Write a test that ensures when the `loadFeed` function is called and completes its work, there is at least a single `.entry` element within the `.feed` container.
 15. Write a test suite named `"New Feed Selection"`.
 16. Write a test that ensures when a new feed is loaded by the `loadFeed` function that the content actually changes.
 17. No test should be dependent on the results of another.
 18. Callbacks should be used to ensure that feeds are loaded before they are tested.
 19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
+20. When complete - all of your tests should pass.
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
