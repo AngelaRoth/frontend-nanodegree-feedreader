@@ -112,6 +112,7 @@ $(function() {
 
             it('for feed ' + feedNum + ' exist on load', function(done) {
                 var numFeedChildren = $('.feed').children().length;
+                console.log('numFeedChildren = ' + numFeedChildren + '; feedNum = ' + feedNum);
                 expect(numFeedChildren).toBeTruthy();
                 done();
             });
@@ -119,6 +120,7 @@ $(function() {
         }
 
         for (var i = 0; i < numFeedListItems; i++) {
+            console.log('in loop ' + i);
             test_if_exist(i);
         }
     });
