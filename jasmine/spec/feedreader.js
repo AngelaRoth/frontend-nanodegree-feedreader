@@ -144,89 +144,34 @@ $(function() {
     // state, with results from first feed being displayed
     var numFeeds = allFeeds.length;
     for (var i = numFeeds - 1; i >= 0; i--) {
-        console.log('loop # ' + i);
         test_for_entries(i);
     }
 
 
-
-
-
-
-
-
-/*
-    describe('Initial Entries', function() {
-
-        console.log('numFeedListItems = ' + numFeedListItems);
-
-        function test_if_exist(feedNum) {
-            beforeEach(function(done) {
-                console.log('feedNum = ' + feedNum);
-                loadFeed(feedNum, function() {
-                    done();
-                });
-            });
-
-            it('for feed ' + feedNum + ' exist on load', function(done) {
-                var numFeedChildren = $('.feed').children().length;
-                console.log('numFeedChildren = ' + numFeedChildren + '; feedNum = ' + feedNum);
-                expect(numFeedChildren).toBeTruthy();
-                done();
-            });
-
-        }
-
-        for (var i = 0; i < numFeedListItems; i++) {
-            console.log('in loop ' + i);
-            test_if_exist(i);
-        }
-
-    });
-*/
-
-/*
-    describe('Initial Entries', function() {
-*/
-        /* Step 14: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
-/*
-        var numFeedListItems = $('.feed-list').children().length;
-        console.log('numFeedListItems = ' + numFeedListItems);
-
-        function test_if_exist(feedNum) {
-            beforeEach(function(done) {
-                console.log('feedNum = ' + feedNum);
-                loadFeed(feedNum, function() {
-                    done();
-                });
-            });
-
-            it('for feed ' + feedNum + ' exist on load', function(done) {
-                var numFeedChildren = $('.feed').children().length;
-                console.log('numFeedChildren = ' + numFeedChildren + '; feedNum = ' + feedNum);
-                expect(numFeedChildren).toBeTruthy();
-                done();
-            });
-
-        }
-
-        for (var i = 0; i < numFeedListItems; i++) {
-            console.log('in loop ' + i);
-            test_if_exist(i);
-        }
-
-    });
-*/
-
-    /* TODO: Write a new test suite named "New Feed Selection" */
-
-        /* TODO: Write a test that ensures when a new feed is loaded
+    /* Step 15: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+        /* Step 16: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var oldHeaderHTML;
+        var oldFeedHTML;
+        beforeEach(function(done) {
+            loadFeed(1, function() {
+                oldHeaderHTML = $('.header').html();
+                oldFeedHTML = $('.feed').html();
+                loadFeed(2, function() {
+                    done();
+                });
+            })
+        });
+
+        it('changes content in header and feed containers', function() {
+            var newHeaderHTML = $('.header').html();
+            var newFeedHTML = $('.feed').html();
+            expect(newHeaderHTML).not.toEqual(oldHeaderHTML);
+            expect(newFeedHTML).not.toEqual(oldFeedHTML);
+        });
+    });
+
 }());
