@@ -91,6 +91,27 @@ $(function() {
 
 
     /* Step 13: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
+
+        it('exist on load', function(done) {
+            var numFeedChildren = $('.feed').children().length;
+            expect(numFeedChildren).toBeGreaterThan(0);
+            done();
+        });
+    });
+
+
+
+
+
+
+
+
 /*
     describe('Initial Entries', function() {
 */
@@ -125,9 +146,10 @@ $(function() {
             console.log('in loop ' + i);
             test_if_exist(i);
         }
-    });
 
+    });
 */
+
     /* TODO: Write a new test suite named "New Feed Selection" */
 
         /* TODO: Write a test that ensures when a new feed is loaded
