@@ -39,8 +39,7 @@ $(function() {
 
         it('all have URL values', function() {
             allFeeds.forEach(function(feed) {
-                // empty strings are not Truthy
-                expect(feed.url).toBeTruthy();
+                expect(feed.url.length).toBeGreaterThan(0);
             });
         });
 
@@ -56,8 +55,7 @@ $(function() {
 
         it('all have name values', function() {
             allFeeds.forEach(function(feed) {
-                // empty strings are not Truthy
-                expect(feed.name).toBeTruthy();
+                expect(feed.name.length).toBeGreaterThan(0);
             });
         });
     });
